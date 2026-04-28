@@ -1,6 +1,13 @@
 # enhanced_xoss_sync
-Enhanced version of ekspla's xoss sync with additional features and helper scripts
+Enhanced version of ekspla's xoss sync with additional features and helper scripts for changing GPS settings and preparing display layouts.
 ## Features
+- Command line arguments provided with ```argparse```
+- Can delete FIT files on device specified in a user-provided list
+- Can retrieve and send GPS settings json and to specify its filename
+- Can specify workout/trace list filename (e.g., filelist.txt, workouts.json)
+- Can save list of traces on device to file
+- Timestamps for each notification to aid benchmarking
+- User adjustable maximum transferable unit (MTU) size
 ## Installation
 Make sure to install the Python Bluetooth library Bleak first:  
 
