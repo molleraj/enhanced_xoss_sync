@@ -1,5 +1,5 @@
 # enhanced_xoss_sync
-Enhanced version of ekspla's xoss sync with additional features and helper scripts for changing GPS settings and preparing display layouts.
+Enhanced version of ekspla's [xoss_sync](https://github.com/ekspla/xoss_sync) with additional features and helper scripts for changing GPS settings and preparing display layouts.
 ## Features
 - Command line arguments provided with ```argparse```
 - Can delete FIT files on device specified in a user-provided list
