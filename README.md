@@ -52,3 +52,6 @@ options:
 ## Adjusting Bluetooth connection parameters for optimum performance (Linux BlueZ)
 ## Benchmarking
 ## Future plans
+- Option to upload/download user layout files
+- Helper scripts for preparing user layout and GPS settings jsons
+- Options to upload/download firmware
