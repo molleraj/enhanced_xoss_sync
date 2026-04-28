@@ -48,13 +48,25 @@ options:
   --define_trace_list_filename DEFINE_TRACE_LIST_FILENAME
                         Set name of json containing all traces/workouts (default workouts.json).
 ```
+## Device specific notes
+I have tested this script on my XOSS G Gen2 primarily, which has a workouts/traces file called ```workouts.json``` and a settings file called ```settings.json```. Older devices like the G Gen1 would have different respective filenames like ```filelist.txt``` and ```Setting.json```, respectively.
 ## Tutorial
 ## Adjusting Bluetooth connection parameters for optimum performance (Linux BlueZ)
 In the process of testing this script on my Linux PC, I found that the XOSS BLE connection defaulted to a connection interval of 48 ms and a corresponding data transfer rate of roughly 13 kbps. I know based on ekspla's work and other Bluetooth documentation that reducing connection intervals should increase throughput. Reducing the interval to the minimum possible (7.5 ms) correspondingly increased my observed transfer rate to roughly 74 kbps. 
 
 I attempted to change minimum and maximum Bluetooth connection intervals globally through the following command, but I didn't see these changes reflected in the XOSS connection negotiation observed with ```btmon```.
 
-What was successful was adding the following lines to the ```info``` file corresponding to my XOSS in 
+What was successful was adding the following lines to the ```info``` file corresponding to my XOSS in ```/var/lib/bluetooth/XX:XX:XX:XX:XX:XX/YY:YY:YY:YY:YY:YY```, where XX:XX:XX:XX:XX:XX and YY:YY:YY:YY:YY:YY are the MAC addresses of my Bluetooth adapter and XOSS, respectively.
+
+```
+[ConnectionParameters]
+MinInterval=6
+MaxInterval=8
+Latency=0
+Timeout=216
+```
+
+This successfully alters connection interval parameters to a minimum of 7.5 ms (6x1.25 ms) and a maximum of 10 ms just for my XOSS and not for other Bluetooth connections.
 
 ## Benchmarking
 All benchmarks were conducted with a Lenovo Thinkpad T530 (model 2392AQU) containing a Broadcom BCM20702 Bluetooth 4.0 Bluetooth interface and running Lubuntu 24.04 Noble, BlueZ 5.72, Python 3.12.3, and Bleak 0.21.1.
