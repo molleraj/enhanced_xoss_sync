@@ -12,3 +12,4 @@ Then clone this GitHub repo.
 ## Tutorial
 ## Adjusting Bluetooth connection parameters for optimum performance (Linux BlueZ)
 ## Benchmarking
+## Future plans
