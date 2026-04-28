@@ -51,7 +51,13 @@ options:
 ## Tutorial
 ## Adjusting Bluetooth connection parameters for optimum performance (Linux BlueZ)
 In the process of testing this script on my Linux PC, I found that the XOSS BLE connection defaulted to a connection interval of 48 ms and a corresponding data transfer rate of roughly 13 kbps. I know based on ekspla's work and other Bluetooth documentation that reducing connection intervals should increase throughput. Reducing the interval to the minimum possible (7.5 ms) correspondingly increased my observed transfer rate to roughly 74 kbps. 
+
+I attempted to change minimum and maximum Bluetooth connection intervals globally through the following command, but I didn't see these changes reflected in the XOSS connection negotiation observed with ```btmon```.
+
+What was successful was adding the following lines to the ```info``` file corresponding to my XOSS in 
+
 ## Benchmarking
+All benchmarks were conducted with a Lenovo Thinkpad T530 (model 2392AQU) containing a Broadcom BCM20702 Bluetooth 4.0 Bluetooth interface and running Lubuntu 24.04 Noble, BlueZ 5.72, Python 3.12.3, and Bleak 0.21.1.
 ## Future plans
 - Option to upload/download user layout files
 - Helper scripts for preparing user layout and GPS settings jsons
