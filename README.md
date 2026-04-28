@@ -49,8 +49,10 @@ options:
                         Set name of json containing all traces/workouts (default workouts.json).
 ```
 ## Device specific notes
-I have tested this script on my XOSS G Gen2 primarily, which has a workouts/traces file called ```workouts.json``` and a settings file called ```settings.json```. Older devices like the G Gen1 would have different respective filenames like ```filelist.txt``` and ```Setting.json```, respectively.
+I have tested this script on my XOSS G Gen2 primarily, which has a workouts/traces file called ```workouts.json```, a data layout file called ``panels.json```, and a settings file called ```settings.json```. Older devices like the G Gen1 would have different respective filenames like ```filelist.txt``` and ```Setting.json```, respectively.
 ## Tutorial
+Here is an example sync session to pull new fit files from the XOSS:
+Here is an example of deleting specified fit files from the XOSS:
 ## Adjusting Bluetooth connection parameters for optimum performance (Linux BlueZ)
 In the process of testing this script on my Linux PC, I found that the XOSS BLE connection defaulted to a connection interval of 48 ms and a corresponding data transfer rate of roughly 13 kbps. I know based on ekspla's work and other Bluetooth documentation that reducing connection intervals should increase throughput. Reducing the interval to the minimum possible (7.5 ms) correspondingly increased my observed transfer rate to roughly 74 kbps. 
 
@@ -71,6 +73,9 @@ This successfully alters connection interval parameters to a minimum of 7.5 ms (
 ## Benchmarking
 All benchmarks were conducted with a Lenovo Thinkpad T530 (model 2392AQU) containing a Broadcom BCM20702 Bluetooth 4.0 Bluetooth interface and running Lubuntu 24.04 Noble, BlueZ 5.72, Python 3.12.3, and Bleak 0.21.1.
 ## Future plans
-- Option to upload/download user layout files
+- Option to upload/download user layout json
 - Helper scripts for preparing user layout and GPS settings jsons
+- Options to upload/download user and gear profile jsons
+- Helper scripts for preparing user and gear profile jsons 
 - Options to upload/download firmware
+- Options to get current odometer reading and reset odometer
