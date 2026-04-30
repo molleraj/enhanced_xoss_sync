@@ -60,7 +60,59 @@ options:
 ## Device specific notes
 I have tested this script on my XOSS G Gen2 primarily, which has a workouts/traces file called ```workouts.json```, a data layout file called ``panels.json```, and a settings file called ```settings.json```. Older devices like the G Gen1 would have different respective filenames like ```filelist.txt``` and ```Setting.json```, respectively.
 ## Tutorial
-Here is an example sync session to pull new fit files from the XOSS:  
+Here is an example sync session to pull new fit files from the XOSS and save traces on the GPS to file:  
+```
+$ time python3 enhanced_xoss_sync.py --save_trace_filelist --output_trace_filelist_name fit_files_043026.txt
+2026-04-30 03:01:37.262838 : Scanning for Bluetooth devices...
+2026-04-30 03:01:37.300601 : Found device: 62-5B-78-45-64-2C - 62:5B:78:45:64:2C
+2026-04-30 03:01:37.486113 : Found device: 62-5B-78-45-64-2C - 62:5B:78:45:64:2C
+2026-04-30 03:01:37.677231 : Found device: 62-5B-78-45-64-2C - 62:5B:78:45:64:2C
+2026-04-30 03:01:37.737387 : Found device: XOSS G-393314 - F9:62:6E:54:D2:1C
+2026-04-30 03:01:37.737534 : Found target device: XOSS G-393314 - F9:62:6E:54:D2:1C
+2026-04-30 03:01:39.557614 : Connected to XOSS G-393314
+2026-04-30 03:01:39.563107 : Device reported MTU size 209
+2026-04-30 03:01:39.563147 : User specified MTU size 247
+2026-04-30 03:01:39.604649 : Notifications started
+2026-04-30 03:01:39.705853 : Free Diskspace: 5072/8104kb
+2026-04-30 03:01:46.350595 : Successfully wrote combined data to workouts.json
+2026-04-30 03:01:46.357727 : Saving list of trace files on GPS to fit_files_043026.txt
+2026-04-30 03:01:46.358150 : Skip: 20260421184624.fit
+2026-04-30 03:01:46.358226 : Skip: 20260423215719.fit
+2026-04-30 03:01:46.358289 : Skip: 20260410162730.fit
+2026-04-30 03:01:46.358340 : Skip: 20260414144956.fit
+2026-04-30 03:01:46.358389 : Skip: 20260409163301.fit
+2026-04-30 03:01:46.358435 : Skip: 20260401194216.fit
+2026-04-30 03:01:46.358526 : Retrieving 20260429233905.fit
+2026-04-30 03:01:50.141738 : Successfully wrote combined data to 20260429233905.fit
+2026-04-30 03:01:50.141865 : Skip: 20260420192410.fit
+2026-04-30 03:01:50.141911 : Skip: 20260415232638.fit
+2026-04-30 03:01:50.141945 : Skip: 20260421150732.fit
+2026-04-30 03:01:50.141979 : Skip: 20260407185359.fit
+2026-04-30 03:01:50.142051 : Skip: 20260426161943.fit
+2026-04-30 03:01:50.142091 : Skip: 20260406184015.fit
+2026-04-30 03:01:50.142173 : Retrieving 20260428190158.fit
+2026-04-30 03:02:07.255887 : Successfully wrote combined data to 20260428190158.fit
+2026-04-30 03:02:07.255927 : Skip: 20260427180112.fit
+2026-04-30 03:02:07.255941 : Skip: 20260417170423.fit
+2026-04-30 03:02:07.255952 : Skip: 20260404223652.fit
+2026-04-30 03:02:07.255963 : Skip: 20260422193344.fit
+2026-04-30 03:02:07.255974 : Skip: 20260424185105.fit
+2026-04-30 03:02:07.255984 : Skip: 20260424134135.fit
+2026-04-30 03:02:07.255995 : Skip: 20260413190854.fit
+2026-04-30 03:02:07.256006 : Skip: 20260408190754.fit
+2026-04-30 03:02:07.256039 : Skip: 20260402180218.fit
+2026-04-30 03:02:07.256051 : Skip: 20260411185357.fit
+2026-04-30 03:02:07.256063 : Skip: 20260417144019.fit
+2026-04-30 03:02:07.256076 : Skip: 20260410141440.fit
+2026-04-30 03:02:07.256090 : Skip: 20260425190516.fit
+2026-04-30 03:02:07.256102 : Skip: 20260414193929.fit
+2026-04-30 03:02:07.256115 : Skip: 20260410141318.fit
+2026-04-30 03:02:07.256127 : Skip: 20260416191052.fit
+
+real    0m32.947s
+user    0m1.268s
+sys     0m0.088s
+```
 Here is an example of deleting specified fit files from the XOSS:
 ## Adjusting Bluetooth connection parameters for optimum performance (Linux BlueZ)
 In the process of testing this script on my Linux PC, I found that the XOSS BLE connection defaulted to a connection interval of 48 ms and a corresponding data transfer rate of roughly 13 kbps. I know based on ekspla's work and other Bluetooth documentation that reducing connection intervals should increase throughput. Reducing the interval to the minimum possible (7.5 ms) correspondingly increased my observed transfer rate to roughly 74 kbps. 
@@ -89,7 +141,7 @@ All benchmarks were conducted with a Lenovo Thinkpad T530 (model 2392AQU) contai
 - Options to upload/download firmware
 - Options to get current odometer reading and reset odometer
 ## References
-The product hardware documentation provided below by XOSS/imxingzhe has been incredibly helpful to myself and [ekspla](https://github.com/ekspla) in developing XOSS sync scripts.
+The product hardware documentation provided below by XOSS/imxingzhe (linked with Google Translate Chinese to English translations) has been incredibly helpful to myself and [ekspla](https://github.com/ekspla) in developing XOSS sync scripts.
 1. [Smart code table file format 2.0](https://developer-imxingzhe-com.translate.goog/docs/device/devicefileformat?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_hist=true)
 2. [Dabuziduo Smart Hardware Open Platform Access Guide](https://developer-imxingzhe-com.translate.goog/docs/device/getting_started/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en)
 3. [Bluetooth real-time motion data and device control communication protocol](https://developer-imxingzhe-com.translate.goog/docs/device/tracking_data_service?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_hist=true)
