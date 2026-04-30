@@ -3,9 +3,10 @@ Enhanced version of ekspla's [xoss_sync](https://github.com/ekspla/xoss_sync) wi
 ## Features
 - Command line arguments provided with ```argparse```
 - Can delete FIT files on device specified in a user-provided list
-- Can retrieve and send GPS settings json and to specify its filename
+- Can retrieve and send GPS settings json and specify its filename (e.g., settings.json)
 - Can specify workout/trace list filename (e.g., filelist.txt, workouts.json)
 - Can save list of traces on device to file
+- Can retrieve and send user layout json and specify its filename (e.g., panels.json)
 - Timestamps for each notification to aid benchmarking
 - User adjustable maximum transferable unit (MTU) size
 ## Installation
@@ -81,9 +82,14 @@ This successfully alters connection interval parameters to a minimum of 7.5 ms (
 ## Benchmarking
 All benchmarks were conducted with a Lenovo Thinkpad T530 (model 2392AQU) containing a Broadcom BCM20702 Bluetooth 4.0 Bluetooth interface and running Lubuntu 24.04 Noble, BlueZ 5.72, Python 3.12.3, and Bleak 0.21.1.
 ## Future plans
-- Option to upload/download user layout json
+- Benchmark on multiple fit files and different computers, with at least three replicates in each case
 - Helper scripts for preparing user layout and GPS settings jsons
 - Options to upload/download user and gear profile jsons
 - Helper scripts for preparing user and gear profile jsons 
 - Options to upload/download firmware
 - Options to get current odometer reading and reset odometer
+## References
+The product hardware documentation provided below by XOSS/imxingzhe has been incredibly helpful to myself and [ekspla](https://github.com/ekspla) in developing XOSS sync scripts.
+1. [Smart code table file format 2.0](https://developer-imxingzhe-com.translate.goog/docs/device/devicefileformat?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_hist=true)
+2. [Dabuziduo Smart Hardware Open Platform Access Guide](https://developer-imxingzhe-com.translate.goog/docs/device/getting_started/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en)
+3. [Bluetooth real-time motion data and device control communication protocol](https://developer-imxingzhe-com.translate.goog/docs/device/tracking_data_service?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_hist=true)
