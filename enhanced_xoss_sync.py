@@ -507,7 +507,7 @@ class BluetoothFileTransfer:
                 		for line in file:
                 			# only delete if filename ends with .fit
                 			filename_to_delete=line.strip()
-                			if file_path.endswith(('.fit','.FIT')):
+                			if filename_to_delete.endswith(('.fit','.FIT')):
                 				# strip() removes the trailing newline character (\n)
                 				# indicate status
                 				print(datetime.now(),":","Deleting ",filename_to_delete)
