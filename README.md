@@ -114,6 +114,58 @@ user    0m1.268s
 sys     0m0.088s
 ```
 Here is an example of deleting specified fit files from the XOSS:
+```
+$ python3 enhanced_xoss_sync.py --delete_selected_fit_files files_to_delete_050126.txt 
+2026-05-01 00:15:19.778183 : Scanning for Bluetooth devices...
+2026-05-01 00:15:19.903504 : Found device: XOSS G-393314 - F9:62:6E:54:D2:1C
+2026-05-01 00:15:19.903606 : Found target device: XOSS G-393314 - F9:62:6E:54:D2:1C
+2026-05-01 00:15:21.596059 : Connected to XOSS G-393314
+2026-05-01 00:15:21.598533 : Device reported MTU size 209
+2026-05-01 00:15:21.599027 : User specified MTU size 247
+2026-05-01 00:15:21.631804 : Notifications started
+2026-05-01 00:15:21.733499 : Free Diskspace: 4896/8104kb
+2026-05-01 00:15:21.733620 : Deleting files specified in list provided as command line argument.
+2026-05-01 00:15:21.734149 : Deleting  20260401194216.fit
+2026-05-01 00:15:22.138212 : Successfully deleted file 20260401194216.fit.
+2026-05-01 00:15:22.138302 : Deleting  20260421150732.fit
+2026-05-01 00:15:22.563068 : Successfully deleted file 20260421150732.fit.
+2026-05-01 00:15:22.563184 : Deleting  20260417170423.fit
+2026-05-01 00:15:22.975219 : Successfully deleted file 20260417170423.fit.
+2026-05-01 00:15:22.975329 : Deleting  20260417144019.fit
+2026-05-01 00:15:23.397916 : Successfully deleted file 20260417144019.fit.
+2026-05-01 00:15:23.398048 : Deleting  20260424134135.fit
+2026-05-01 00:15:23.820013 : Successfully deleted file 20260424134135.fit.
+2026-05-01 00:15:23.820127 : Deleting  20260410162730.fit
+2026-05-01 00:15:24.245396 : Successfully deleted file 20260410162730.fit.
+2026-05-01 00:15:24.245485 : Deleting  20260402180218.fit
+2026-05-01 00:15:24.669362 : Successfully deleted file 20260402180218.fit.
+2026-05-01 00:15:31.211504 : Successfully wrote combined data to workouts.json
+2026-05-01 00:15:31.217477 : Skip: 20260414193929.fit
+2026-05-01 00:15:31.217547 : Skip: 20260420192410.fit
+2026-05-01 00:15:31.217596 : Skip: 20260409163301.fit
+2026-05-01 00:15:31.217652 : Skip: 20260414144956.fit
+2026-05-01 00:15:31.217702 : Skip: 20260416191052.fit
+2026-05-01 00:15:31.217750 : Skip: 20260423215719.fit
+2026-05-01 00:15:31.217827 : Skip: 20260429233905.fit
+2026-05-01 00:15:31.217882 : Skip: 20260415232638.fit
+2026-05-01 00:15:31.217928 : Skip: 20260410141318.fit
+2026-05-01 00:15:31.217974 : Skip: 20260406184015.fit
+2026-05-01 00:15:31.218022 : Skip: 20260410141440.fit
+2026-05-01 00:15:31.218069 : Skip: 20260428190158.fit
+2026-05-01 00:15:31.218115 : Skip: 20260413190854.fit
+2026-05-01 00:15:31.218162 : Skip: 20260430191143.fit
+2026-05-01 00:15:31.218207 : Skip: 20260407185359.fit
+2026-05-01 00:15:31.218252 : Skip: 20260411185357.fit
+2026-05-01 00:15:31.218297 : Skip: 20260404223652.fit
+2026-05-01 00:15:31.218343 : Skip: 20260424185105.fit
+2026-05-01 00:15:31.218389 : Skip: 20260408190754.fit
+2026-05-01 00:15:31.218434 : Skip: 20260422193344.fit
+2026-05-01 00:15:31.218480 : Skip: 20260427180112.fit
+2026-05-01 00:15:31.218524 : Skip: 20260430183321.fit
+2026-05-01 00:15:31.218570 : Skip: 20260421184624.fit
+2026-05-01 00:15:31.218617 : Skip: 20260426161943.fit
+2026-05-01 00:15:31.218662 : Skip: 20260425190516.fit
+```
 ## Adjusting Bluetooth connection parameters for optimum performance (Linux BlueZ)
 In the process of testing this script on my Linux PC, I found that the XOSS BLE connection defaulted to a connection interval of 48 ms and a corresponding data transfer rate of roughly 13 kbps. I know based on ekspla's work and other Bluetooth documentation that reducing connection intervals should increase throughput. Reducing the interval to the minimum possible (7.5 ms) correspondingly increased my observed transfer rate to roughly 74 kbps. 
 
