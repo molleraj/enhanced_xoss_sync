@@ -1,5 +1,6 @@
 # enhanced_xoss_sync
-Enhanced version of ekspla's [xoss_sync](https://github.com/ekspla/xoss_sync) with additional features and helper scripts for changing GPS settings and preparing display layouts.
+Enhanced version of ekspla's [xoss_sync](https://github.com/ekspla/xoss_sync) with additional features and helper scripts for changing GPS settings and preparing display layouts. This Python script communicates with XOSS GPS cycling computer devices over Bluetooth Low Energy (BLE) to retrieve recorded traces (FIT files) without the use of the standard XOSS cloud/Android apps.
+
 ## Features
 - Command line arguments provided with ```argparse```
 - Can delete FIT files on device specified in a user-provided list
