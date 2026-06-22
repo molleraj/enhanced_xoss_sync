@@ -194,6 +194,7 @@ All benchmarks were conducted with a Lenovo Thinkpad T530 (model 2392AQU) contai
 - Helper scripts for preparing user and gear profile jsons 
 - Options to upload/download firmware
 - Options to get current odometer reading and reset odometer
+- Helper script to automate clearing fit files from GPS storage after syncing, perhaps upon hitting a storage threshold (e.g., 2MB or less free)
 ## References
 The product hardware documentation provided below by XOSS/imxingzhe (linked with Google Translate Chinese to English translations) has been incredibly helpful to myself and [ekspla](https://github.com/ekspla) in developing XOSS sync scripts.
 1. [Smart code table file format 2.0](https://developer-imxingzhe-com.translate.goog/docs/device/devicefileformat?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_hist=true)
