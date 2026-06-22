@@ -188,6 +188,8 @@ All benchmarks were conducted with a Lenovo Thinkpad T530 (model 2392AQU) contai
 ## Future plans
 - Benchmark on multiple fit files and different computers, with at least three replicates in each case
 - Helper scripts for preparing user layout and GPS settings jsons
+  - User layout JSON indicates which panel contains which measurment field (e.g., average speed, maximum speed, total time, total distance, odometer)
+  - GPS settings JSON includes preferences for measurement unit system (metric/imperial), language, and time zone, amongst others
 - Options to upload/download user and gear profile jsons
 - Helper scripts for preparing user and gear profile jsons 
 - Options to upload/download firmware
