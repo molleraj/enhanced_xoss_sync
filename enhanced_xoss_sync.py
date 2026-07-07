@@ -84,9 +84,9 @@ def parse_args():
 	# name for output trace filelist
 	parser.add_argument("--output_trace_filelist_name",required=False,default="fit_files.txt",help="Filename for list of trace files currently present on GPS (default fit_files.txt).")
 	# get parameters from specified JSON (e.g., Setting.json)
-	parser.add_argument("--get_settings_from_json",required=False,default=False,action=argparse.BooleanOptionalAction,help="Get GPS settings by saving Settings.json JSON file to PC.")
+	parser.add_argument("--get_settings_from_json",required=False,default=False,action=argparse.BooleanOptionalAction,help="Get GPS settings by saving Setting.json JSON file to PC.")
 	# set parameters with specified JSON (e.g., Setting.json)
-	parser.add_argument("--change_settings_with_json",required=False,default=False,action=argparse.BooleanOptionalAction,help="Change GPS settings with Settings.json JSON file.")
+	parser.add_argument("--change_settings_with_json",required=False,default=False,action=argparse.BooleanOptionalAction,help="Change GPS settings with Setting.json JSON file.")
 	# specify settings json filename
 	parser.add_argument("--settings_json_filename",required=False,default="Setting.json",help="GPS settings JSON if not named Setting.json.")
 	# set MTU size
