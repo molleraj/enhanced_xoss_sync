@@ -42,9 +42,9 @@ options:
   --output_trace_filelist_name OUTPUT_TRACE_FILELIST_NAME
                         Filename for list of trace files currently present on GPS (default fit_files.txt).
   --get_settings_from_json, --no-get_settings_from_json
-                        Get GPS settings by saving Settings.json JSON file to PC.
+                        Get GPS settings by saving Setting.json JSON file to PC.
   --change_settings_with_json, --no-change_settings_with_json
-                        Change GPS settings with Settings.json JSON file.
+                        Change GPS settings with Setting.json JSON file.
   --settings_json_filename SETTINGS_JSON_FILENAME
                         GPS settings JSON if not named Setting.json.
   --get_layout_from_json, --no-get_layout_from_json
