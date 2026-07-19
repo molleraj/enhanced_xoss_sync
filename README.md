@@ -84,7 +84,7 @@ options:
   --keytone {True,False}
                         Keytone - 'true' for on or 'false' for off.
 ```
-## Device specific notes
+## Device-specific notes
 I have tested this script on my XOSS G Gen2 primarily, which has a workouts/traces file called ```workouts.json```, a data layout file called ``panels.json```, and a settings file called ```settings.json```. Older devices like the G Gen1 would have different respective filenames like ```filelist.txt``` and ```Setting.json```, respectively.
 ## Tutorial
 Here is an example sync session to pull new fit files from the XOSS and save traces on the GPS to file:  
