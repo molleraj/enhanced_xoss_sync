@@ -1,5 +1,5 @@
 # enhanced_xoss_sync
-Enhanced version of ekspla's [xoss_sync](https://github.com/ekspla/xoss_sync) with additional features and helper scripts for changing GPS settings and preparing display layouts. This Python script communicates with XOSS GPS cycling computer devices over Bluetooth Low Energy (BLE) to retrieve recorded traces (FIT files) without the use of the standard XOSS cloud/Android apps.
+Enhanced version of ekspla's [xoss_sync](https://github.com/ekspla/xoss_sync) with additional features and helper scripts for changing GPS settings and preparing display layouts. This Python script communicates with XOSS GPS cycling computer devices over Bluetooth Low Energy (BLE) to retrieve recorded traces (FIT files) without the use of the standard XOSS cloud/Android apps. I have recently also added an additional script for configuring XOSS GPS settings via command line arguments.
 
 ## Features
 - Command line arguments provided with ```argparse```
@@ -57,6 +57,32 @@ options:
                         Set maximum transferable unit (MTU) size (default 247).
   --define_trace_list_filename DEFINE_TRACE_LIST_FILENAME
                         Set name of json containing all traces/workouts (default workouts.json).
+```
+```
+usage: configure_xoss_settings.py [-h] --input_settings_json INPUT_SETTINGS_JSON --output_settings_json OUTPUT_SETTINGS_JSON
+                                  [--language {en,it,ko,ja,de,es,fr,zh-cn,zh-hk,zh-tw,pt-pt,pt-br}] [--unit_type {0,1}] [--temperature_unit {0,1}]
+                                  [--time_format {0,1}] [--backlight {0,1,2}] [--pause {0,1}] [--overwrite {0,1}] [--keytone {True,False}]
+
+Configure XOSS GPS settings that are stored in settings.json file with command line parameters.
+
+options:
+  -h, --help            show this help message and exit
+  --input_settings_json INPUT_SETTINGS_JSON
+                        Filename for original XOSS GPS settings JSON to configure.
+  --output_settings_json OUTPUT_SETTINGS_JSON
+                        Filename for output edited XOSS GPS settings JSON.
+  --language {en,it,ko,ja,de,es,fr,zh-cn,zh-hk,zh-tw,pt-pt,pt-br}
+                        Default language for GPS based on i18n standard two-letter codes (e.g., "en" for English) documented at
+                        https://www.w3.org/International/O-charset-lang.html. Available choices based on XOSS developer documentation provided.
+  --unit_type {0,1}     (Distance) unit type - 0 for metric (e.g., km) or 1 for imperial (miles).
+  --temperature_unit {0,1}
+                        Temperature unit - 0 for Celsius or 1 for Fahrenheit.
+  --time_format {0,1}   Time format - 0 for 24 hours or 1 for 12 hours.
+  --backlight {0,1,2}   Backlight - 0 for auto, 1 for always on, or 2 for always off.
+  --pause {0,1}         Pause GPS when not moving - 0 for auto or 1 for off.
+  --overwrite {0,1}     Automatic overwrite when memory full - 0 for on or 1 for off.
+  --keytone {True,False}
+                        Keytone - 'true' for on or 'false' for off.
 ```
 ## Device specific notes
 I have tested this script on my XOSS G Gen2 primarily, which has a workouts/traces file called ```workouts.json```, a data layout file called ``panels.json```, and a settings file called ```settings.json```. Older devices like the G Gen1 would have different respective filenames like ```filelist.txt``` and ```Setting.json```, respectively.
