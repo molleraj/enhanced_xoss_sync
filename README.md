@@ -198,14 +198,19 @@ I have also found it useful to compare the current list of fit files on the GPS 
 ```
 # Get list of fit file traces currently on GPS
 python3 enhanced_xoss_sync.py --save_trace_filelist --output_trace_filelist_name fit_files_072126.txt
+
 # Note available storage from timestamped logs
 2026-07-21 00:45:42.173100 : Free Diskspace: 1860/8104kb
+
 # Get 40 largest fit files on GPS that are already backed up to current working directory
 ls -S *.fit | grep -f - fit_files_072126.txt | head -n 40 > fit_files_to_delete_072126.txt
+
 # Proceed to delete these fit files from GPS
 python3 enhanced_xoss_sync.py --delete_selected_fit_files fit_files_to_delete_072126.txt
+
 # Check storage used after deletion
 python3 enhanced_xoss_sync.py --list_storage_used_only
+
 # Confirm increase in free storage relative to earlier timestamp
 2026-07-21 01:13:37.113103 : Free Diskspace: 5140/8104kb
 2026-07-21 01:13:37.113222 : Listed storage used, now quitting.
