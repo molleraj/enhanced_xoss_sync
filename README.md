@@ -10,6 +10,7 @@ Enhanced version of ekspla's [xoss_sync](https://github.com/ekspla/xoss_sync) wi
 - Can retrieve and send user layout json and specify its filename (e.g., panels.json)
 - Timestamps for each notification to aid benchmarking
 - User adjustable maximum transferable unit (MTU) size
+- Helper script provided to create Setting.json/settings.json file for configuring GPS settings 
 ## Installation
 Make sure to install the Python Bluetooth library Bleak first:  
 
