@@ -250,6 +250,6 @@ The product hardware documentation provided below by XOSS/imxingzhe (linked with
 2. [Dabuziduo Smart Hardware Open Platform Access Guide](https://developer-imxingzhe-com.translate.goog/docs/device/getting_started/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en)
 3. [Bluetooth real-time motion data and device control communication protocol](https://developer-imxingzhe-com.translate.goog/docs/device/tracking_data_service?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_hist=true)
 ## Related projects
-[xoss_sync](https://github.com/ekspla/xoss_sync)
-[f-xoss](https://github.com/DCNick3/f-xoss)
-[CycSync](https://github.com/Kaiserdragon2/CycSync)
+- [xoss_sync](https://github.com/ekspla/xoss_sync)
+- [f-xoss](https://github.com/DCNick3/f-xoss)
+- [CycSync](https://github.com/Kaiserdragon2/CycSync)
