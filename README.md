@@ -194,6 +194,22 @@ $ python3 enhanced_xoss_sync.py --delete_selected_fit_files files_to_delete_0501
 2026-05-01 00:15:31.218617 : Skip: 20260426161943.fit
 2026-05-01 00:15:31.218662 : Skip: 20260425190516.fit
 ```
+I have also found it useful to compare the current list of fit files on the GPS with those saved in a working directory, so that I can periodically clear backed up traces. An example session excluding excess log messages in which I clear the forty largest backed up fit files on the GPS is provided below. I plan to expand on this idea to write an automated GPS trace data management script. I'm thinking I might activate it when the GPS flash storage has less than 1MB free.
+```
+# Get list of fit file traces currently on GPS
+python3 enhanced_xoss_sync.py --save_trace_filelist --output_trace_filelist_name fit_files_072126.txt
+# Note available storage from timestamped logs
+2026-07-21 00:45:42.173100 : Free Diskspace: 1860/8104kb
+# Get 40 largest fit files on GPS that are already backed up to current working directory
+ls -S *.fit | grep -f - fit_files_072126.txt | head -n 40 > fit_files_to_delete_072126.txt
+# Proceed to delete these fit files from GPS
+python3 enhanced_xoss_sync.py --delete_selected_fit_files fit_files_to_delete_072126.txt
+# Check storage used after deletion
+python3 enhanced_xoss_sync.py --list_storage_used_only
+# Confirm increase in free storage relative to earlier timestamp
+2026-07-21 01:13:37.113103 : Free Diskspace: 5140/8104kb
+2026-07-21 01:13:37.113222 : Listed storage used, now quitting.
+```
 ## Adjusting Bluetooth connection parameters for optimum performance (Linux BlueZ)
 In the process of testing this script on my Linux PC, I found that the XOSS BLE connection defaulted to a connection interval of 48 ms and a corresponding data transfer rate of roughly 13 kbps. I know based on ekspla's work and other Bluetooth documentation that reducing connection intervals should increase throughput. Reducing the interval to the minimum possible (7.5 ms) correspondingly increased my observed transfer rate to roughly 74 kbps. 
 
